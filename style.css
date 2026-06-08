@@ -1,22 +1,18 @@
-/* ==========================================================================
-   1. BASE STYLES & FONTS
-   ========================================================================== */
 body {
-  background-color: #f7f0f5; 
-  background-image: url('img/wallpaper.jpg'); 
-  background-size: cover;        
-  background-position: center;   
-  background-attachment: fixed;  
-  font-family: 'Quicksand', 'Comfortaa', 'Comic Sans MS', sans-serif;
+  background-color: #f7f0f5;
+  background-image: url('img/wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Comic Neue', cursive;
   margin: 0;
   padding: 20px;
   color: #4a4a4a;
-  transition: background 0.5s ease, color 0.5s ease, filter 0.5s ease; 
+  transition: background 0.5s ease, color 0.5s ease, filter 0.5s ease;
 }
 
-/* Kustomisasi list profile di sidebar agar rata kiri */
 aside ul, .sidebar ul, .profile-box ul {
-  padding-left: 15px !important; 
+  padding-left: 15px !important;
   margin-left: 0 !important;
 }
 
@@ -25,30 +21,26 @@ aside li, .sidebar li, .profile-box li {
   padding-left: 0 !important;
 }
 
-/* 🫧 KUSTOMISASI SCROLLBAR PASTEL 🫧 */
 ::-webkit-scrollbar {
   width: 12px;
 }
 ::-webkit-scrollbar-track {
-  background: #f7f0f5; 
+  background: #f7f0f5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #a8a8ff; 
+  background: #a8a8ff;
   border-radius: 10px;
-  border: 3px solid #f7f0f5; 
+  border: 3px solid #f7f0f5;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8e8eff; 
+  background: #8e8eff;
 }
 
-/* ==========================================================================
-   2. SITE LAYOUT MAP
-   ========================================================================== */
 .blog-container {
   display: flex;
   max-width: 1000px;
   margin: 0 auto;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .blog-feed {
@@ -59,11 +51,8 @@ aside li, .sidebar li, .profile-box li {
   flex: 3;
 }
 
-/* ==========================================================================
-   3. CONTAINER CARDS (Header, Posts, Sidebar)
-   ========================================================================== */
 .blog-header {
-  position: relative; 
+  position: relative;
   text-align: center;
   padding: 40px 20px;
   background: white;
@@ -74,12 +63,12 @@ aside li, .sidebar li, .profile-box li {
 
 .header-ribbon {
   position: absolute;
-  top: 10px;               
-  width: 200px;              
+  top: 10px;
+  width: 200px;
   height: auto;
-  cursor: pointer;          
-  transition: transform 0.2s ease, filter 0.3s ease; 
-  filter: brightness(1); 
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.3s ease;
+  filter: brightness(1);
 }
 
 .ribbon-left {
@@ -88,15 +77,15 @@ aside li, .sidebar li, .profile-box li {
 
 .ribbon-right {
   right: 70px;
-  transform: scaleX(-1); 
+  transform: scaleX(-1);
 }
 
 .ribbon-left:active {
-  transform: rotate(15deg); 
+  transform: rotate(15deg);
 }
 
 .ribbon-right:active {
-  transform: scaleX(-1) rotate(15deg); 
+  transform: scaleX(-1) rotate(15deg);
 }
 
 .blog-header h1 {
@@ -157,12 +146,9 @@ aside li, .sidebar li, .profile-box li {
 }
 
 .sidebar-card p {
-  color: #8fa0ca; 
+  color: #8fa0ca;
 }
 
-/* ==========================================================================
-   4. FAVORITES GRID & LISTS
-   ========================================================================== */
 .favorites-grid {
   display: flex;
   gap: 20px;
@@ -194,28 +180,26 @@ aside li, .sidebar li, .profile-box li {
 .fav-title-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Membuat judul di kiri, tombol di kanan */
+  justify-content: space-between;
   margin-bottom: 12px;
 }
 
-/* Merapikan margin bawaan judul h3 */
 .fav-title-container h3 {
   margin: 0 !important;
 }
 
-/* Mengubah tampilan link menjadi tombol play bulat pastel */
 .play-btn {
   text-decoration: none;
   background: #feffe3;
   border: 2px solid #a8a8ff;
-  color: #a8a8ff; /* 🌟 TAMBAHKAN INI: Mengubah warna segitiga jadi abu-abu gelap estetik */
+  color: #a8a8ff;
   font-size: 0.75rem;
   width: 28px;
   height: 28px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%; /* Membuat tombol jadi bulat sempurna */
+  border-radius: 50%;
   transition: all 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
@@ -223,17 +207,15 @@ aside li, .sidebar li, .profile-box li {
 @media (hover: hover) {
   .play-btn:hover {
     background: #a8a8ff;
-    color: white; /* 🌟 Pas di-hover mouse, segitiganya berubah jadi putih */
+    color: white;
     transform: scale(1.1);
   }
 }
 
-/* Efek saat ditekan di HP atau PC */
 .play-btn:active {
   transform: scale(0.9);
 }
 
-/* Efek hover khusus di PC/Laptop */
 @media (hover: hover) {
   .play-btn:hover {
     background: #a8a8ff;
@@ -241,9 +223,6 @@ aside li, .sidebar li, .profile-box li {
   }
 }
 
-/* ==========================================================================
-   5. INTERACTIVE COMPONENTS & BUTTONS
-   ========================================================================== */
 .avatar {
   font-size: 3rem;
   background: #feffe3;
@@ -252,13 +231,13 @@ aside li, .sidebar li, .profile-box li {
   line-height: 80px;
   border-radius: 50%;
   margin: 0 auto 15px auto;
-  border: 2px solid #a8a8ff; 
-  color: #a8a8ff; 
+  border: 2px solid #a8a8ff;
+  color: #a8a8ff;
 }
 
 #themeToggle {
   background: transparent;
-  border: 2px solid #a8a8ff; 
+  border: 2px solid #a8a8ff;
   color: #a8a8ff;
   padding: 5px 12px;
   border-radius: 20px;
@@ -275,7 +254,7 @@ aside li, .sidebar li, .profile-box li {
 }
 
 button {
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+  font-family: 'Comic Neue', cursive !important;
 }
 
 .like-button {
@@ -307,7 +286,6 @@ button {
   color: #a8a8ff;
 }
 
-/* Efek hover hanya jalan di PC/Laptop yang pakai mouse */
 @media (hover: hover) {
   .like-button:not(.liked):hover {
     background: #a8a8ff;
@@ -325,10 +303,10 @@ button {
 }
 
 .blog-gif {
-  max-width: 100%; 
-  height: auto;    
-  border-radius: 15px; 
-  margin: 10px 0;  
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin: 10px 0;
 }
 
 #petButton {
@@ -343,7 +321,7 @@ button {
 }
 
 #petButton:active {
-  transform: scale(0.9); 
+  transform: scale(0.9);
 }
 
 #petButton, #addNoteBtn {
@@ -358,13 +336,13 @@ button {
 
 .floating-text {
   position: absolute;
-  top: 20px;            
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  color: #a8a8ff;       
+  color: #a8a8ff;
   font-weight: bold;
   font-size: 1.2rem;
-  pointer-events: none; 
+  pointer-events: none;
   animation: floatUpFade 0.8s ease-out forwards;
 }
 
@@ -377,12 +355,12 @@ button {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 40px; 
+  margin-top: 40px;
 }
 
 .social-link {
   display: block;
-  text-decoration: none; 
+  text-decoration: none;
   padding: 10px;
   background: #f5f5ff;
   color: #a8a8ff;
@@ -395,7 +373,7 @@ button {
 .social-link:hover {
   background: #a8a8ff;
   color: white;
-  transform: translateY(-2px); 
+  transform: translateY(-2px);
 }
 
 .club-btn {
@@ -403,20 +381,17 @@ button {
   border-color: #f7f9c2;
 }
 
-/* ==========================================================================
-   6. GACHA KOTAK MISTERI STYLES
-   ========================================================================== */
 .gacha-post {
   text-align: center;
-  border: 2px dashed #a8a8ff; 
+  border: 2px dashed #a8a8ff;
 }
 
 .gacha-container {
   margin: 20px 0 10px 0;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
-  gap: 15px; 
+  gap: 15px;
 }
 
 .gacha-ball-wrapper {
@@ -425,7 +400,7 @@ button {
 }
 
 #gachaBall {
-  width: 90px; 
+  width: 90px;
   height: auto;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -433,7 +408,7 @@ button {
 }
 
 #gachaBall:hover {
-  transform: scale(1.08); 
+  transform: scale(1.08);
 }
 
 .ball-bounce {
@@ -460,9 +435,6 @@ button {
   transition: all 0.2s ease;
 }
 
-/* ==========================================================================
-   7. INTERAKTIF: PAPAN GUESTBOOK STICKY NOTES (LAPTOP VERSION)
-   ========================================================================== */
 .guestbook-post {
   text-align: center;
   border: 2px dashed #a8a8ff;
@@ -486,10 +458,9 @@ button {
   border-color: #e57373;
   color: #c62828;
   cursor: not-allowed;
-  transform: none; /* Menghilangkan efek membesar/scale */
+  transform: none;
 }
 
-/* Warna merah redup saat mading penuh (Mode Malam) */
 body.muted-mode #addNoteBtn:disabled {
   background: #5c3434;
   border-color: #8a5252;
@@ -497,12 +468,11 @@ body.muted-mode #addNoteBtn:disabled {
 }
 
 #addNoteBtn:active {
-  transform: scale(0.98); /* Sedikit mengecil seperti tombol asli saat ditekan */
+  transform: scale(0.98);
   background: #a8a8ff;
   color: white;
 }
 
-/* Efek hover khusus untuk PC/Laptop yang pakai mouse */
 @media (hover: hover) {
   #addNoteBtn:hover {
     transform: scale(1.05);
@@ -518,7 +488,7 @@ body.muted-mode #addNoteBtn:disabled {
   padding: 20px;
   min-height: 150px;
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
   align-items: center;
@@ -537,7 +507,7 @@ body.muted-mode #addNoteBtn:disabled {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-family: 'Comic Sans MS', sans-serif;
+  font-family: 'Comic Neue', cursive;
   animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
@@ -546,71 +516,66 @@ body.muted-mode #addNoteBtn:disabled {
   100% { transform: scale(1) rotate(2deg); opacity: 1; }
 }
 
-/* Variasi Warna Sticky Notes */
 .note-yellow { background: #fffec4; transform: rotate(-2deg); }
 .note-blue   { background: #e3f2fd; transform: rotate(3deg); }
 .note-pink   { background: #ffebee; transform: rotate(-1deg); }
 .note-purple { background: #f3e5f5; transform: rotate(2deg); }
 .note-green  { background: #e8f5e9; transform: rotate(-3deg); }
 
-/* ==========================================================================
-   8. RESPONSIVE DESIGN (Mobile View)
-   ========================================================================== */
 @media (max-width: 768px) {
   .blog-container {
     flex-direction: column;
   }
-  
+
   .favorites-grid {
     flex-direction: column;
     gap: 15px;
   }
-  
-  /* FIX MADING: Paksa menyamping pakai Flexbox di HP */
+
   .bulletin-board {
-    display: flex !important;       
-    flex-direction: row !important; 
-    flex-wrap: nowrap !important;   
-    overflow-x: auto !important;    
-    overflow-y: hidden !important;  
-    justify-content: flex-start !important; 
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    justify-content: flex-start !important;
     align-items: center !important;
     padding: 15px !important;
     width: 100% !important;
     box-sizing: border-box !important;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   .sticky-note {
     display: flex !important;
-    flex-shrink: 0 !important;      
+    flex-shrink: 0 !important;
     width: 120px !important;
-    min-width: 120px !important;    
+    min-width: 120px !important;
     height: 75px !important;
     font-size: 0.75rem !important;
     padding: 10px !important;
-    margin-right: 12px !important;  
-    white-space: normal !important; 
+    margin-right: 12px !important;
+    white-space: normal !important;
   }
-  
+
   .header-ribbon {
-    width: 80px; 
+    width: 80px;
     top: -10px;
   }
-  
+
   .ribbon-left {
-    left: 10px; 
+    left: 10px;
   }
-  
+
   .ribbon-right {
-    right: 10px; 
+    right: 10px;
   }
-  
+
   .blog-header h1 {
     font-size: 1.8rem;
     margin-top: 15px;
   }
-  
+
   .blog-header p {
     font-size: 0.85rem;
   }
@@ -632,20 +597,17 @@ body.muted-mode #addNoteBtn:disabled {
 }
 }
 
-/* ==========================================================================
-   9. MUTED TWILIGHT MODE STYLES (THEMA MALAM)
-   ========================================================================== */
 body.muted-mode {
   background-image: linear-gradient(rgba(40, 44, 70, 0.85), rgba(40, 44, 70, 0.85)), url('img/wallpaper.jpg');
-  color: #e0e0ff; 
+  color: #e0e0ff;
 }
 
-body.muted-mode .blog-post, 
+body.muted-mode .blog-post,
 body.muted-mode .sidebar-card,
 body.muted-mode .blog-header {
-  background: rgba(52, 52, 82, 0.95); 
-  border-color: #52528a;                    
-  color: #e0e0ff;                            
+  background: rgba(52, 52, 82, 0.95);
+  border-color: #52528a;
+  color: #e0e0ff;
   box-shadow: none;
 }
 
@@ -655,14 +617,14 @@ body.muted-mode .fav-column {
 }
 
 body.muted-mode #themeToggle {
-  border-style: solid; 
-  border-color: #52528a;       
-  color: #e0e0ff;              
-  background: rgba(52, 52, 82, 0.5); 
+  border-style: solid;
+  border-color: #52528a;
+  color: #e0e0ff;
+  background: rgba(52, 52, 82, 0.5);
 }
 
 body.muted-mode #themeToggle:hover {
-  background: #52528a;         
+  background: #52528a;
   color: white;
 }
 
@@ -672,7 +634,7 @@ body.muted-mode .club-btn,
 body.muted-mode #addNoteBtn {
   background: #404065;
   border-color: #52528a;
-  color: #bfa8ff;              
+  color: #bfa8ff;
 }
 
 body.muted-mode .like-button:active,
@@ -682,7 +644,6 @@ body.muted-mode #addNoteBtn:active {
   color: white;
 }
 
-/* Efek hover Mode Malam khusus PC/Laptop yang pakai mouse */
 @media (hover: hover) {
   body.muted-mode .like-button:hover,
   body.muted-mode #petButton:hover,
@@ -693,8 +654,8 @@ body.muted-mode #addNoteBtn:active {
 }
 
 body.muted-mode .avatar {
-  background: #3d3d66; 
-  color: #bfa8ff; 
+  background: #3d3d66;
+  color: #bfa8ff;
 }
 
 body.muted-mode .social-link {
@@ -736,7 +697,6 @@ body.muted-mode .bulletin-board {
   border-color: #52528a;
 }
 
-/* Mengurangi tingkat keterangan note pastel saat mode malam agar estetik */
 body.muted-mode .sticky-note {
   filter: brightness(0.85);
   color: #222;
@@ -768,7 +728,7 @@ body.muted-mode .reward-btn:hover {
 body.muted-mode .play-btn {
   background: #404065;
   border-color: #52528a;
-  color: #bfa8ff; /* 🌟 Segitiganya jadi warna krem pastel lembut saat malam */
+  color: #bfa8ff;
 }
 
 @media (hover: hover) {
@@ -778,9 +738,6 @@ body.muted-mode .play-btn {
   }
 }
 
-/* ==========================================================================
-   10. QUIZ STYLES
-   ========================================================================== */
 .quiz-question {
   margin: 15px 0;
 }
@@ -835,27 +792,21 @@ body.muted-mode .play-btn {
   outline: none;
 }
 
-/* ==========================================================================
-   FIX TOMBOL MADING PENUH (TERKUNCI TETAP MERAH PAS DITEKAN)
-   ========================================================================== */
-
-/* 1. Versi Mode Normal (Siang) */
 #addNoteBtn:disabled,
 #addNoteBtn:disabled:hover,
 #addNoteBtn:disabled:active {
-  background: #ffebee !important;   /* Merah pastel lembut */
-  border: 2px solid #e57373 !important; /* Border merah */
-  color: #c62828 !important;        /* Tulisan merah tua */
+  background: #ffebee !important;
+  border: 2px solid #e57373 !important;
+  color: #c62828 !important;
   cursor: not-allowed !important;
-  transform: none !important;       /* Menghilangkan efek membesar/mengecil */
+  transform: none !important;
 }
 
-/* 2. Versi Mode Malam (Twilight) */
 body.muted-mode #addNoteBtn:disabled,
 body.muted-mode #addNoteBtn:disabled:hover,
 body.muted-mode #addNoteBtn:disabled:active {
-  background: #5c3434 !important;   /* Merah gelap estetik malam */
-  border: 2px solid #8a5252 !important; /* Border merah redup */
-  color: #ffbfa8 !important;        /* Tulisan pastel soft pink/red */
+  background: #5c3434 !important;
+  border: 2px solid #8a5252 !important;
+  color: #ffbfa8 !important;
   transform: none !important;
 }

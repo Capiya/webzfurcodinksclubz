@@ -1,6 +1,3 @@
-/* ==========================================================================
-   1. CORE INTERACTIVE: THEME TOGGLE (MUTED TWILIGHT MODE)
-   ========================================================================== */
 const themeToggle = document.getElementById('themeToggle');
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
@@ -12,10 +9,6 @@ if (themeToggle) {
     }
   });
 }
-
-/* ==========================================================================
-   2. INTERACTIVE: LIKE BUTTON EFFECT
-   ========================================================================== */
 const likeButtons = document.querySelectorAll('.like-button');
 likeButtons.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -29,43 +22,28 @@ likeButtons.forEach(btn => {
     }
   });
 });
-/* ==========================================================================
-   3. INTERACTIVE: PET THE CAT & FLOATING TEXT EFFECT
-   ========================================================================== */
 const petButton = document.getElementById('petButton');
 const catContainer = document.getElementById('catContainer');
 let petCount = 0;
-
 if (petButton && catContainer) {
-  // Tambahkan container text count di bawah button jika belum ada
   const countDiv = document.createElement('div');
   countDiv.id = 'petCount';
   countDiv.innerText = 'Dielus 0 kali';
   petButton.parentNode.insertBefore(countDiv, petButton.nextSibling);
-
   petButton.addEventListener('click', () => {
     petCount++;
     countDiv.innerText = `Dielus ${petCount} kali`;
-    
-    // Efek Teks Melayang
     const floatText = document.createElement('span');
     floatText.className = 'floating-text';
     floatText.innerText = petCount % 2 === 0 ? 'Nyan!' : 'Myon?';
     catContainer.appendChild(floatText);
-    
-    // Hapus teks setelah animasi selesai
     setTimeout(() => {
       floatText.remove();
     }, 800);
   });
 }
-
-/* ==========================================================================
-   4. GAMES COMPONENT: GACHAPON ENGINE
-   ========================================================================== */
 const gachaBall = document.getElementById('gachaBall');
 const gachaText = document.getElementById('gachaText');
-
 const gachaRewards = [
   '🎉 Kamu dapet: Kesempatan untuk masuk eskul coding!',
   '🎉 Kamu dapet: Golden ticket masuk eskul coding!',
@@ -91,29 +69,22 @@ const gachaRewards = [
   '🎉 Kamu dapet: Pulpen hitam yang tintanya tinggal seperempat!',
   '🎉 Kamu dapet: Ikat rambut!'
 ];
-
 if (gachaBall && gachaText) {
   let tokenCount = 3;
-
-  // Add token display below the bubble
   const tokenDiv = document.createElement('div');
   tokenDiv.id = 'gachaTokens';
   tokenDiv.innerText = `Token tersisa: ${tokenCount} 🪙`;
   tokenDiv.style.cssText = 'font-size: 0.85rem; color: #a8a8ff; font-weight: bold; margin-top: 5px;';
   gachaText.parentNode.insertBefore(tokenDiv, gachaText.nextSibling);
-
   gachaBall.addEventListener('click', () => {
     if (tokenCount <= 0) {
       gachaText.innerText = 'Token kamu habis! Refresh dulu ya. (･_･)';
       return;
     }
-
     tokenCount--;
     tokenDiv.innerText = `Token tersisa: ${tokenCount} 🪙`;
-
     gachaBall.classList.add('ball-bounce');
     gachaText.innerText = 'Memutar Gachapon...';
-
     setTimeout(() => {
       gachaBall.classList.remove('ball-bounce');
       const randomIdx = Math.floor(Math.random() * gachaRewards.length);
@@ -127,12 +98,8 @@ if (gachaBall && gachaText) {
     }, 500);
   });
 }
-/* ==========================================================================
-   5. INTERACTIVE: PAPAN MADING STICKY NOTES ENGINE
-   ========================================================================== */
 const addNoteBtn = document.getElementById('addNoteBtn');
 const bulletinBoard = document.getElementById('bulletinBoard');
-
 const randomMessages = [
   'Lab komputer dingin banget...',
   'Jangan lupa titik koma (;) ya!',
@@ -141,55 +108,37 @@ const randomMessages = [
   'Setel lagu apa ya sambil ngoding?',
   'You were here!'
 ];
-
 const noteColors = ['note-yellow', 'note-blue', 'note-pink', 'note-purple', 'note-green'];
-
 if (addNoteBtn && bulletinBoard) {
   addNoteBtn.addEventListener('click', () => {
-    // Count only sticky notes added dynamically (exclude initial ones)
     const currentNotes = bulletinBoard.querySelectorAll('.sticky-note');
     if (currentNotes.length >= 12) {
       addNoteBtn.innerText = 'Mading udah penuh! (･_･)';
       addNoteBtn.disabled = true;
       return;
     }
-
     const newNote = document.createElement('div');
-    
-    // Ambil pesan & warna acak
     const randomMsg = randomMessages[Math.floor(Math.random() * randomMessages.length)];
     const randomColor = noteColors[Math.floor(Math.random() * noteColors.length)];
-    
     newNote.className = `sticky-note ${randomColor}`;
     newNote.innerText = randomMsg;
-    
     bulletinBoard.appendChild(newNote);
-    
-    // Auto-scroll ke mading paling kanan kalau di HP biar langsung kelihatan
     bulletinBoard.scrollLeft = bulletinBoard.scrollWidth;
   });
 }
-
-/* ==========================================================================
-   6. QUIZ ENGINE
-   ========================================================================== */
 const correctAnswers = { 1: 'a', 2: 'a', 3: 'c' };
 const pointsPerQ = [34, 33, 33];
 let quizScore = 0;
 let quizPoints = 0;
-
 const quizBtns = document.querySelectorAll('.quiz-btn');
 quizBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     const q = btn.getAttribute('data-q');
     const val = btn.getAttribute('data-val');
-
-    // Disable all buttons for this question
     document.querySelectorAll(`.quiz-btn[data-q="${q}"]`).forEach(b => {
       b.disabled = true;
       b.style.opacity = '0.6';
     });
-
     if (val === correctAnswers[parseInt(q)]) {
   btn.style.background = '#e8f5e9';
   btn.style.borderColor = '#81c784';
@@ -201,7 +150,6 @@ quizBtns.forEach(btn => {
   btn.style.borderColor = '#e57373';
   btn.style.color = '#c62828';
 }
-
     const nextQ = parseInt(q) + 1;
     if (nextQ <= 3) {
       setTimeout(() => {
@@ -216,9 +164,7 @@ quizBtns.forEach(btn => {
         const rewardLink = document.getElementById('quizRewardLink');
         const quizGif = document.getElementById('quizGif');
         result.style.display = 'block';
-
         const percentage = Math.round((quizScore / 3) * 100);
-
         if (quizScore === 3) {
   resultText.innerText = `Omedetou! Skor kamu 100/100! Yuk, klaim hadiahmu! ٩(^ᗜ^ )و`;
   rewardLink.style.display = 'inline-block';
