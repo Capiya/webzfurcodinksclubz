@@ -1,0 +1,235 @@
+/* ==========================================================================
+   1. CORE INTERACTIVE: THEME TOGGLE (MUTED TWILIGHT MODE)
+   ========================================================================== */
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('muted-mode');
+    if (document.body.classList.contains('muted-mode')) {
+      themeToggle.innerText = 'Selamat Malam!';
+    } else {
+      themeToggle.innerText = 'Coba Pencet!';
+    }
+  });
+}
+
+/* ==========================================================================
+   2. INTERACTIVE: LIKE BUTTON EFFECT
+   ========================================================================== */
+const likeButtons = document.querySelectorAll('.like-button');
+likeButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.blur();
+    if(!btn.classList.contains('liked')) {
+      btn.innerHTML = '❤️ Setuju!';
+      btn.classList.add('liked');
+    } else {
+      btn.innerHTML = '❤ Setuju!';
+      btn.classList.remove('liked');
+    }
+  });
+});
+/* ==========================================================================
+   3. INTERACTIVE: PET THE CAT & FLOATING TEXT EFFECT
+   ========================================================================== */
+const petButton = document.getElementById('petButton');
+const catContainer = document.getElementById('catContainer');
+let petCount = 0;
+
+if (petButton && catContainer) {
+  // Tambahkan container text count di bawah button jika belum ada
+  const countDiv = document.createElement('div');
+  countDiv.id = 'petCount';
+  countDiv.innerText = 'Dielus 0 kali';
+  petButton.parentNode.insertBefore(countDiv, petButton.nextSibling);
+
+  petButton.addEventListener('click', () => {
+    petCount++;
+    countDiv.innerText = `Dielus ${petCount} kali`;
+    
+    // Efek Teks Melayang
+    const floatText = document.createElement('span');
+    floatText.className = 'floating-text';
+    floatText.innerText = petCount % 2 === 0 ? 'Nyan!' : 'Myon?';
+    catContainer.appendChild(floatText);
+    
+    // Hapus teks setelah animasi selesai
+    setTimeout(() => {
+      floatText.remove();
+    }, 800);
+  });
+}
+
+/* ==========================================================================
+   4. GAMES COMPONENT: GACHAPON ENGINE
+   ========================================================================== */
+const gachaBall = document.getElementById('gachaBall');
+const gachaText = document.getElementById('gachaText');
+
+const gachaRewards = [
+  '🎉 Kamu dapet: Kesempatan untuk masuk eskul coding!',
+  '🎉 Kamu dapet: Golden ticket masuk eskul coding!',
+  '🎉 Kamu dapet: Gacha ball kosong...?',
+  '🎉 Kamu dapet: Cangkang permen!',
+  '🎉 Kamu dapet: 17,845 dollar!!',
+  '🎉 Kamu dapet: Buku novel preloved!',
+  '🎉 Kamu dapet: Ganci akrilik!',
+  '🎉 Kamu dapet: Koin perak!',
+  '🎉 Kamu dapet: 1 gram uranium!',
+  '🎉 Kamu dapet: Sisir kucing!',
+  '🎉 Kamu dapet: Terompet!',
+  '🎉 Kamu dapet: Notes mini!',
+  '🎉 Kamu dapet: Daun kering estetik dari pohon depan sekolah!',
+  '🎉 Kamu dapet: Biskuit Oreo tanpa krim!',
+  '🎉 Kamu dapet: Pompa air!',
+  '🎉 Kamu dapet: 10,000,000 won (tapi dalam bentuk monopoli)!!',
+  '🎉 Kamu dapet: Stiker kucing!',
+  '🎉 Kamu dapet: Batu kerikil!',
+  '🎉 Kamu dapet: Botol minum kosong ukuran 2 liter!',
+  '🎉 Kamu dapet: Guting berkarat!',
+  '🎉 Kamu dapet: Balon yang belum ditiup!',
+  '🎉 Kamu dapet: Pulpen hitam yang tintanya tinggal seperempat!',
+  '🎉 Kamu dapet: Ikat rambut!'
+];
+
+if (gachaBall && gachaText) {
+  let tokenCount = 3;
+
+  // Add token display below the bubble
+  const tokenDiv = document.createElement('div');
+  tokenDiv.id = 'gachaTokens';
+  tokenDiv.innerText = `Token tersisa: ${tokenCount} 🪙`;
+  tokenDiv.style.cssText = 'font-size: 0.85rem; color: #a8a8ff; font-weight: bold; margin-top: 5px;';
+  gachaText.parentNode.insertBefore(tokenDiv, gachaText.nextSibling);
+
+  gachaBall.addEventListener('click', () => {
+    if (tokenCount <= 0) {
+      gachaText.innerText = 'Token kamu habis! Refresh dulu ya. (･_･)';
+      return;
+    }
+
+    tokenCount--;
+    tokenDiv.innerText = `Token tersisa: ${tokenCount} 🪙`;
+
+    gachaBall.classList.add('ball-bounce');
+    gachaText.innerText = 'Memutar Gachapon...';
+
+    setTimeout(() => {
+      gachaBall.classList.remove('ball-bounce');
+      const randomIdx = Math.floor(Math.random() * gachaRewards.length);
+      gachaText.innerText = gachaRewards[randomIdx];
+
+      if (tokenCount <= 0) {
+        gachaBall.style.opacity = '0.5';
+        gachaBall.style.cursor = 'not-allowed';
+        tokenDiv.innerText = 'Token habis! Refresh halaman untuk dapat token baru ya!';
+      }
+    }, 500);
+  });
+}
+/* ==========================================================================
+   5. INTERACTIVE: PAPAN MADING STICKY NOTES ENGINE
+   ========================================================================== */
+const addNoteBtn = document.getElementById('addNoteBtn');
+const bulletinBoard = document.getElementById('bulletinBoard');
+
+const randomMessages = [
+  'Lab komputer dingin banget...',
+  'Jangan lupa titik koma (;) ya!',
+  'Di smartboard bisa main roblox gak ya?',
+  'Sepatunya ditaruh di rak, jangan di bawa masuk lab ya!',
+  'Setel lagu apa ya sambil ngoding?',
+  'You were here!'
+];
+
+const noteColors = ['note-yellow', 'note-blue', 'note-pink', 'note-purple', 'note-green'];
+
+if (addNoteBtn && bulletinBoard) {
+  addNoteBtn.addEventListener('click', () => {
+    // Count only sticky notes added dynamically (exclude initial ones)
+    const currentNotes = bulletinBoard.querySelectorAll('.sticky-note');
+    if (currentNotes.length >= 12) {
+      addNoteBtn.innerText = 'Mading udah penuh! (･_･)';
+      addNoteBtn.disabled = true;
+      return;
+    }
+
+    const newNote = document.createElement('div');
+    
+    // Ambil pesan & warna acak
+    const randomMsg = randomMessages[Math.floor(Math.random() * randomMessages.length)];
+    const randomColor = noteColors[Math.floor(Math.random() * noteColors.length)];
+    
+    newNote.className = `sticky-note ${randomColor}`;
+    newNote.innerText = randomMsg;
+    
+    bulletinBoard.appendChild(newNote);
+    
+    // Auto-scroll ke mading paling kanan kalau di HP biar langsung kelihatan
+    bulletinBoard.scrollLeft = bulletinBoard.scrollWidth;
+  });
+}
+
+/* ==========================================================================
+   6. QUIZ ENGINE
+   ========================================================================== */
+const correctAnswers = { 1: 'a', 2: 'a', 3: 'c' };
+const pointsPerQ = [34, 33, 33];
+let quizScore = 0;
+let quizPoints = 0;
+
+const quizBtns = document.querySelectorAll('.quiz-btn');
+quizBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const q = btn.getAttribute('data-q');
+    const val = btn.getAttribute('data-val');
+
+    // Disable all buttons for this question
+    document.querySelectorAll(`.quiz-btn[data-q="${q}"]`).forEach(b => {
+      b.disabled = true;
+      b.style.opacity = '0.6';
+    });
+
+    if (val === correctAnswers[parseInt(q)]) {
+  btn.style.background = '#e8f5e9';
+  btn.style.borderColor = '#81c784';
+  btn.style.color = '#388e3c';
+  quizPoints += pointsPerQ[parseInt(q) - 1];
+  quizScore++;
+} else {
+  btn.style.background = '#ffebee';
+  btn.style.borderColor = '#e57373';
+  btn.style.color = '#c62828';
+}
+
+    const nextQ = parseInt(q) + 1;
+    if (nextQ <= 3) {
+      setTimeout(() => {
+        document.getElementById(`q${q}`).style.display = 'none';
+        document.getElementById(`q${nextQ}`).style.display = 'block';
+      }, 600);
+    } else {
+      setTimeout(() => {
+        document.getElementById(`q${q}`).style.display = 'none';
+        const result = document.getElementById('quizResult');
+        const resultText = document.getElementById('quizResultText');
+        const rewardLink = document.getElementById('quizRewardLink');
+        const quizGif = document.getElementById('quizGif');
+        result.style.display = 'block';
+
+        const percentage = Math.round((quizScore / 3) * 100);
+
+        if (quizScore === 3) {
+  resultText.innerText = `Omedetou! Skor kamu 100/100! Yuk, klaim hadiahmu! ٩(^ᗜ^ )و`;
+  rewardLink.style.display = 'inline-block';
+} else if (quizPoints === 67) {
+  resultText.innerText = `Skor kamu 67/100... Eh? 67? SIX SEVEN!? (Refresh untuk ulang ya! (╥ ᴗ ╥))`;
+  quizGif.src = 'img/sixseven.webp';
+  quizGif.style.display = 'block';
+} else {
+  resultText.innerText = `Skor kamu ${quizPoints}/100. Coba lagi yuk! (Refresh untuk ulang ya! (╥ ᴗ ╥))`;
+}
+      }, 600);
+    }
+  });
+});

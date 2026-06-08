@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>buat demo eskul sing penting siap</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="particle-container"></div>
+
+  <header class="blog-header">
+    <img src="img/ribbon.png" alt="Cute ribbon" class="header-ribbon ribbon-left">
+    <img src="img/ribbon.png" alt="Cute ribbon" class="header-ribbon ribbon-right">
+    <h1>Hello, world!</h1>
+    <p>ようこそ！キラキラ ドキドキ もちもち ぷよぷよ ワクワク わっしょい！</p>
+    <button id="themeToggle">Coba Pencet!</button>
+  </header>
+
+  <div class="blog-container">
+    
+    <main class="blog-feed">
+      
+      <article class="blog-post">
+        <h2>Introduction! ( • ̀ω•́ )</h2>
+        <p>Halo! Kenalin, aku Shafiyya Mahira Putri (Biasa dipanggil Shafiyya), salah satu anggota dari Eskul Coding SMAN 2 Medan. ⸜(｡^ ᵕ ^ )⸝♡</p>
+        <p>Saat ini aku lagi seru-serunya belajar dasar-dasar web development. Website ini adalah salah satu proyek pertamaku untuk menampilkan dan mendokumentasikan berbagai hal yang sudah aku pelajari selama mengikuti ekskul coding. ᕙ( •̀ ᗜ •́ )ᕗ</p>
+        <p>Quick Fun Facts about me:</p>
+        <ul style="padding-left: 15px !important; margin-left: 0 !important;">
+          <li>Selain hobi baca komik, aku juga suka banget menggambar dan koleksi merch.</li>
+          <li>Aku paling suka mata pelajaran seni budaya dan bahasa Inggris di sekolah.</li>
+          <li>Warna yang paling aku suka? Biru!!</li>
+        </ul>
+        <p>Terima kasih sudah mampir ke website ini! Jangan ragu buat menjelajah dan melihat-lihat hasil karyaku, ya. See you around! ദ്ദി(˵ • ̀ ᴗ - ˵ )</p>
+      </article>
+
+      <article class="blog-post">
+        <h2>Kenapa Kamu Harus Mulai Belajar Coding! ( ˶°ㅁ°)!!</h2>
+        <p>Banyak orang mengira coding cuma buat yang jago matematika atau yang kuat begadang semalaman. Padahal kenyataannya, coding itu adalah wadah untuk berkarya dan berkreasi, enggak jauh beda dengan melukis, mendesain, atau menyusun Lego.</p>
+        <p>Saat membuat website sendiri, kamu bebas menuangkan ide sesukamu: memilih warna, mengatur layout, sampai menambahkan animasi yang bikin karyamu jadi lebih hidup (kayak website yang aku bikin ini nih (ദ്ദി ˙ᗜ˙ ))</p>
+        <p>Selain seru, belajar coding juga melatih cara berpikir yang lebih logis dan terstruktur. Setiap kali menemukan bug dan mencari solusinya, kamu sedang mengasah kemampuan problem solving yang berguna bukan cuma di depan layar, tapi juga dalam kehidupan sehari-hari.</p>
+        <p>Jadi, jangan cuma jadi penonton di internet. Saatnya jadi kreator, mewujudkan ide-ide kerenmu, dan membuat karya yang bisa dinikmati banyak orang!</p>
+        <p>Yuk, mulai perjalananmu sekarang dan gabung ke ekskul coding! (˶˃ ᵕ ˂˶) .ᐟ.ᐟ</p>
+        <button class="like-button">❤ Setuju!</button>
+      </article>
+
+      <article class="blog-post">
+        <h2>My Current Rotation! (๑>؂•̀๑)</h2>
+        <div class="favorites-grid">
+          
+          <div class="fav-column">
+            <div class="fav-title-container">
+              <h3>Top Heavy Rotation!</h3>
+              <a href="https://otaku-song.pages.dev/share/o6b9zq58" target="_blank" class="play-btn">▶︎</a>
+            </div>
+            <ul>
+              <li>Koufuku Kei - LonePi</li>
+              <li>Apricot - iyowa</li>
+              <li>Wedding Bug - Dannie May</li>
+              <li>Mousou Sketch - 40mP</li>
+              <li>IMAWANOKIWA - iyowa</li>
+            </ul>
+          </div>
+          
+          <div class="fav-column">
+            <h3>Games I'm Playing!</h3>
+            <ul>
+              <li>Twisted Wonderland</li>
+              <li>Colorful Stage</li>
+              <li>Reverse 1999</li>
+              <li>Umamusume</li>
+              <li>Roblox</li>
+            </ul>
+          </div>
+
+        </div>
+      </article>
+
+      <article class="blog-post" style="text-align: center;">
+        <h2>Kuis Kilat Coding! (˶ˆᗜˆ˵)</h2>
+        <p>Yuk tes seberapa jauh kamu tahu tentang web development!</p>
+
+        <div id="quizContainer">
+          <div class="quiz-question" id="q1">
+            <p><strong>1. HTML singkatan dari:</strong></p>
+            <button class="quiz-btn" data-q="1" data-val="a">a. HyperText Markup Language</button>
+            <button class="quiz-btn" data-q="1" data-val="b">b. HyperText Machine Language</button>
+            <button class="quiz-btn" data-q="1" data-val="c">c. HyperText Meta Language</button>
+          </div>
+
+          <div class="quiz-question" id="q2" style="display:none;">
+            <p><strong>2. Tag HTML manakah yang benar untuk membuat judul dengan ukuran font paling besar?</strong></p>
+            <button class="quiz-btn" data-q="2" data-val="a">a. &lt;h1&gt;</button>
+            <button class="quiz-btn" data-q="2" data-val="b">b. &lt;h3&gt;</button>
+            <button class="quiz-btn" data-q="2" data-val="c">c. &lt;p&gt;</button>
+          </div>
+
+          <div class="quiz-question" id="q3" style="display:none;">
+            <p><strong>3. Bahasa desain yang digunakan untuk menghias dan mengatur tata letak elemen pada halaman website adalah:</strong></p>
+            <button class="quiz-btn" data-q="3" data-val="a">a. Tux Paint</button>
+            <button class="quiz-btn" data-q="3" data-val="b">b. C++</button>
+            <button class="quiz-btn" data-q="3" data-val="c">c. CSS</button>
+          </div>
+
+          <div id="quizResult" style="display:none;">
+            <img id="quizGif" src="" alt="" style="display:none; max-width:250px; border-radius:15px; margin: 10px auto;">
+            <p id="quizResultText" style="font-size: 1.1rem; font-weight: bold; color: #a8a8ff;"></p>
+            <a id="quizRewardLink" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" style="display:none;">
+              <button class="reward-btn" style="margin-top: 10px;">Klaim Hadiah! (ㅅ´ ˘ `)</button>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="blog-post gacha-post">
+        <h2>Gachapon Eskul Koding!</h2>
+        <p>Penasaran gak kira-kira kamu bakal dapat apa? (≖⩊≖)</p>
+        <div class="gacha-container">
+          <div class="gacha-ball-wrapper">
+            <img src="img/Gacha.png" alt="Gachapon" id="gachaBall">
+          </div>
+          <div id="gachaText" class="gacha-bubble">Klik Mesin Gachapon Diatas!</div>
+        </div>
+      </article>
+
+      <article class="blog-post guestbook-post">
+        <h2>Papan Pesan (Sticky Notes!)</h2>
+        <p>Yuk, baca pesan-pesan random di mading Ekskul Coding!</p>
+        <p>Klik tombol di bawah untuk membuka salah satu kertas memo yang tersedia. Siapa tahu kamu dapat pesan lucu atau motivasi~ (˶˃ ᵕ ˂˶)</p>
+        <p>By the way, pesan yang muncul dipilih secara acak, jadi setiap klik bisa kasih kejutan yang berbeda! ദ്ദി(˵ •̀ ᴗ - ˵ )</p>
+        <button id="addNoteBtn">Ambil Sticky Note!</button>
+        
+        <div id="bulletinBoard" class="bulletin-board">
+          <div class="sticky-note note-yellow">Ayo join eskul coding!</div>
+          <div class="sticky-note note-blue">Code your future together with us!</div>
+        </div>
+      </article>
+
+    </main> 
+    
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        
+        <div class="avatar">𓏲ּ𝄢</div>
+  
+        <div class="cat-container" id="catContainer">
+          <img src="img/nyan_cat.webp" alt="Cute pixel cat" class="blog-gif">
+        </div>
+  
+        <h3>About Me</h3>
+        <p>Anak SMA yang kebanyakan hobi (˙𐃷˙)</p>
+  
+        <button id="petButton">Pet the cat!</button>
+  
+        <div class="sidebar-links">
+          <a href="https://www.instagram.com/staromachi?igsh=NDZ0Y21hbDQzbGIx" target="_blank" class="social-link">📸 My Instagram Page</a>
+          <a href="https://LINK_TO_YOUR_CODING_CLUB" target="_blank" class="social-link club-btn">💻 Coding Club</a>
+        </div>
+
+      </div> 
+    </aside> 
+    
+  </div> 
+
+  <script src="script.js"></script>
+  <div id="pinkFilter"></div>
+</body>
+</html>
