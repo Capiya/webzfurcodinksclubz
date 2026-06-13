@@ -44,7 +44,7 @@ aside li, .sidebar li, .profile-box li {
 ::-webkit-scrollbar-thumb {
   background: #a8a8ff;
   border-radius: 10px;
-  border: 3px solid #f7f0f5;
+  border: 3px solid #8888e3;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #8e8eff;
@@ -69,7 +69,7 @@ aside li, .sidebar li, .profile-box li {
   position: relative;
   text-align: center;
   padding: 40px 20px;
-  background: white;
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 20px;
   margin-bottom: 30px;
   border: 2px dashed #8888e3;
@@ -104,17 +104,17 @@ aside li, .sidebar li, .profile-box li {
 
 .blog-header h1 {
   margin: 0;
-  color: rgb(168, 168, 255);
+  color: rgba(168, 168, 255);
   font-size: 2.5rem;
 }
 
 .blog-post {
-  background: rgba(255, 255, 255);
+  background: rgba(255, 255, 255, 0.75);
   padding: 25px;
   border-radius: 20px;
   margin-bottom: 20px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-  border: 1px solid #ffe3ec;
+  border: 1px solid #a8a8ff;
   backdrop-filter: blur(5px);
 }
 
@@ -132,7 +132,7 @@ aside li, .sidebar li, .profile-box li {
 }
 
 .sidebar-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 20px;
   text-align: center;
@@ -140,7 +140,7 @@ aside li, .sidebar li, .profile-box li {
   top: 20px;
   max-height: calc(100vh - 0px);
   overflow-y: auto;
-  border: 1px solid #feffe3;
+  border: 1px solid #a8a8ff;
   transform: scale(0.95);
   transform-origin: top right;
 }
@@ -533,9 +533,6 @@ body.muted-mode #addNoteBtn:disabled {
 
 .note-yellow { background: #fffec4; transform: rotate(-2deg); }
 .note-blue   { background: #e3f2fd; transform: rotate(3deg); }
-.note-pink   { background: #ffebee; transform: rotate(-1deg); }
-.note-purple { background: #f3e5f5; transform: rotate(2deg); }
-.note-green  { background: #e8f5e9; transform: rotate(-3deg); }
 
 @media (max-width: 768px) {
   .blog-container {
@@ -610,6 +607,17 @@ body.muted-mode #addNoteBtn:disabled {
   overflow-y: visible;
   transform: none;
 }
+}
+
+.site-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255,255,255,0.85);
+  border: 2px dashed #a8a8ff;
+  border-radius: 20px;
+  color: #a8a8ff;
+  font-weight: bold;
 }
 
 body.muted-mode {
@@ -828,4 +836,10 @@ body.muted-mode #addNoteBtn:disabled:active {
   border: 2px solid #8a5252 !important;
   color: #ffbfa8 !important;
   transform: none !important;
+}
+
+body.muted-mode .site-footer {
+  background: rgba(52, 52, 82, 0.95);
+  border-color: #52528a;
+  color: #e0e0ff;
 }

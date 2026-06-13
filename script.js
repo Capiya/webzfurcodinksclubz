@@ -54,19 +54,7 @@ const gachaRewards = [
   '🎉 Kamu dapet: Koin perak!',
   '🎉 Kamu dapet: 1 gram uranium!',
   '🎉 Kamu dapet: Sisir kucing!',
-  '🎉 Kamu dapet: Terompet!',
-  '🎉 Kamu dapet: Notes mini!',
-  '🎉 Kamu dapet: Daun kering estetik dari pohon depan sekolah!',
-  '🎉 Kamu dapet: Biskuit Oreo tanpa krim!',
-  '🎉 Kamu dapet: Pompa air!',
-  '🎉 Kamu dapet: 10,000,000 won (tapi dalam bentuk monopoli)!!',
-  '🎉 Kamu dapet: Stiker kucing!',
-  '🎉 Kamu dapet: Batu kerikil!',
-  '🎉 Kamu dapet: Botol minum kosong ukuran 2 liter!',
-  '🎉 Kamu dapet: Guting berkarat!',
-  '🎉 Kamu dapet: Balon yang belum ditiup!',
-  '🎉 Kamu dapet: Pulpen hitam yang tintanya tinggal seperempat!',
-  '🎉 Kamu dapet: Ikat rambut!'
+  '🎉 Kamu dapet: Terompet!'
 ];
 if (gachaBall && gachaText) {
   let tokenCount = 3;
@@ -108,7 +96,7 @@ const randomMessages = [
   '"Kunci labnya di mana ya...?"',
   'You were here!'
 ];
-const noteColors = ['note-yellow', 'note-blue', 'note-pink', 'note-purple', 'note-green'];
+const noteColors = ['note-yellow', 'note-blue'];
 if (addNoteBtn && bulletinBoard) {
   addNoteBtn.addEventListener('click', () => {
     const currentNotes = bulletinBoard.querySelectorAll('.sticky-note');
