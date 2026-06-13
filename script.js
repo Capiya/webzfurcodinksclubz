@@ -22,26 +22,7 @@ likeButtons.forEach(btn => {
     }
   });
 });
-const petButton = document.getElementById('petButton');
-const catContainer = document.getElementById('catContainer');
-let petCount = 0;
-if (petButton && catContainer) {
-  const countDiv = document.createElement('div');
-  countDiv.id = 'petCount';
-  countDiv.innerText = 'Dielus 0 kali';
-  petButton.parentNode.insertBefore(countDiv, petButton.nextSibling);
-  petButton.addEventListener('click', () => {
-    petCount++;
-    countDiv.innerText = `Dielus ${petCount} kali`;
-    const floatText = document.createElement('span');
-    floatText.className = 'floating-text';
-    floatText.innerText = petCount % 2 === 0 ? 'Nyan!' : 'Myon?';
-    catContainer.appendChild(floatText);
-    setTimeout(() => {
-      floatText.remove();
-    }, 800);
-  });
-}
+
 const gachaBall = document.getElementById('gachaBall');
 const gachaText = document.getElementById('gachaText');
 const gachaRewards = [
