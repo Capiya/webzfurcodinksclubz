@@ -46,7 +46,6 @@ const gachaBall = document.getElementById('gachaBall');
 const gachaText = document.getElementById('gachaText');
 const gachaRewards = [
   '🎉 Kamu dapet: Kesempatan untuk masuk eskul coding!',
-  '🎉 Kamu dapet: Golden ticket masuk eskul coding!',
   '🎉 Kamu dapet: Gacha ball kosong...?',
   '🎉 Kamu dapet: Cangkang permen!',
   '🎉 Kamu dapet: 17,845 dollar!!',
@@ -101,11 +100,12 @@ if (gachaBall && gachaText) {
 const addNoteBtn = document.getElementById('addNoteBtn');
 const bulletinBoard = document.getElementById('bulletinBoard');
 const randomMessages = [
-  'Lab komputer dingin banget...',
-  'Jangan lupa titik koma (;) ya!',
-  'Di smartboard bisa main roblox gak ya?',
-  'Sepatunya ditaruh di rak, jangan di bawa masuk lab ya!',
-  'Setel lagu apa ya sambil ngoding?',
+  '"Lab komputer dingin banget..."',
+  '"Botol minum siapa ini!?"',
+  '"Di smartboard bisa main Roblox gak ya?"',
+  '"Sepatunya ditaruh di rak, jangan dipakai masuk lab ya!"',
+  '"Setel lagu apa ya sambil ngoding? Setel lagu galau ah"',
+  '"Kunci labnya di mana ya...?"',
   'You were here!'
 ];
 const noteColors = ['note-yellow', 'note-blue', 'note-pink', 'note-purple', 'note-green'];
@@ -169,11 +169,11 @@ quizBtns.forEach(btn => {
   resultText.innerText = `Omedetou! Skor kamu 100/100! Yuk, klaim hadiahmu! ٩(^ᗜ^ )و`;
   rewardLink.style.display = 'inline-block';
 } else if (quizPoints === 67) {
-  resultText.innerText = `Skor kamu 67/100... Eh? 67? SIX SEVEN!? (Refresh untuk ulang ya! (╥ ᴗ ╥))`;
+  resultText.innerText = `Skor kamu 67/100... Eh? 67? SIX SEVEN!? (Refresh untuk ulang ya!)`;
   quizGif.src = 'img/sixseven.webp';
   quizGif.style.display = 'block';
 } else {
-  resultText.innerText = `Skor kamu ${quizPoints}/100. Coba lagi yuk! (Refresh untuk ulang ya! (╥ ᴗ ╥))`;
+  resultText.innerText = `Skor kamu ${quizPoints}/100. Coba lagi yuk! (Refresh untuk ulang ya!)`;
 }
       }, 600);
     }
