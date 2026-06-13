@@ -25,18 +25,34 @@ likeButtons.forEach(btn => {
 
 const gachaBall = document.getElementById('gachaBall');
 const gachaText = document.getElementById('gachaText');
-const gachaRewards = [
-  '🎉 Kamu dapet: Kesempatan untuk masuk eskul coding!',
-  '🎉 Kamu dapet: Gacha ball kosong...?',
-  '🎉 Kamu dapet: Cangkang permen!',
-  '🎉 Kamu dapet: 17,845 dollar!!',
-  '🎉 Kamu dapet: Buku novel preloved!',
-  '🎉 Kamu dapet: Ganci akrilik!',
-  '🎉 Kamu dapet: Koin perak!',
-  '🎉 Kamu dapet: 1 gram uranium!',
-  '🎉 Kamu dapet: Sisir kucing!',
-  '🎉 Kamu dapet: Terompet!'
-];
+
+const gachaPool = {
+  SSR: [
+    { title: '✨ [SSR] Oguri Cap - ∞ 🎶', url: 'https://www.youtube.com/watch?v=kuMQureM-kA' },
+    { title: '✨ [SSR] Perfume - Electro World 🎶', url: 'https://www.youtube.com/watch?v=8zh0ouiYIZc' },
+    { title: '✨ [SSR] Kairiki bear - Bug 🎶', url: 'https://www.youtube.com/watch?v=FkO8ub83wss' },
+    { title: '✨ [SSR] DECO*27 - Telepathy 🎶', url: 'https://www.youtube.com/watch?v=c56TpxfO9q0' },
+    { title: '✨ [SSR] Minami no Minami - SEKAI-chan and KAFU-chan no Otsukai Gassou Kyoku 🎶', url: 'https://www.youtube.com/watch?v=hXabKIYl_Yo'},
+    { title: '✨ [SSR] LamazeP - Ai no Uta 🎶', url: 'https://www.youtube.com/watch?v=E2oRrLUxWKo' }
+  ],
+  SR: [
+    { title: "⭐ [SR] Umamusume - Ms. VICTORIA 🎵", url: 'https://www.youtube.com/watch?v=vsnyQd6Ur-M' },
+    { title: '⭐ [SR] mikitoP - Kunoichi demo Koi ga Shitai 🎵', url: 'https://www.youtube.com/watch?v=eI4F8vuxoQE' },
+    { title: '⭐ [SR] MARETU - White Happy 🎵', url: 'https://www.youtube.com/watch?v=rYymKe82y0c' },
+    { title: '⭐ [SR] Kai - Lose the Princess 🎵', url: 'https://www.youtube.com/watch?v=_fmKpimgQq8' },
+    { title: "⭐ [SR] rusino - Looping the Rooms 🎵", url: 'https://www.youtube.com/watch?v=icBDYkfxpMs' },
+    { title: '⭐ [SR] Tsumiki - Phony 🎵', url: 'https://www.youtube.com/watch?v=9QLT1Aw_45s' }
+  ],
+  R: [
+    { title: '⚪ [R] iyowa - Everything 🎧', url: 'https://www.youtube.com/watch?v=ctAMLdnQUfI' },
+    { title: '⚪ [R] wotaku - snooze 🎧', url: 'https://www.youtube.com/watch?v=fqBpGiVn2k0' },
+    { title: '⚪ [R] HoneyWorks - Kawaikute Gomen 🎧', url: 'https://www.youtube.com/watch?v=K4xLi8IF1FM' },
+    { title: '⚪ [R] Shibayan Records - Tiny Little Adiantum 🎧', url: 'https://www.youtube.com/watch?v=rB7XFQgJHBI' },
+    { title: '⚪ [R] inabakumori - Lag Train 🎧', url: 'https://www.youtube.com/watch?v=UnIhRpIT7nc' },
+    { title: '⚪ [R] balloon - Hana ni Kaze 🎧', url: 'https://www.youtube.com/watch?v=ixLrlhthgHs' }
+  ]
+};
+
 if (gachaBall && gachaText) {
   let tokenCount = 3;
   const tokenDiv = document.createElement('div');
@@ -46,7 +62,7 @@ if (gachaBall && gachaText) {
   gachaText.parentNode.insertBefore(tokenDiv, gachaText.nextSibling);
   gachaBall.addEventListener('click', () => {
     if (tokenCount <= 0) {
-      gachaText.innerText = 'Token kamu habis! Refresh dulu ya. (･_･)';
+      gachaText.innerHTML = 'Token kamu habis! Refresh dulu ya. (･_･)';
       return;
     }
     tokenCount--;
@@ -55,9 +71,19 @@ if (gachaBall && gachaText) {
     gachaText.innerText = 'Memutar Gachapon...';
     setTimeout(() => {
       gachaBall.classList.remove('ball-bounce');
-      const randomIdx = Math.floor(Math.random() * gachaRewards.length);
-      gachaText.innerText = gachaRewards[randomIdx];
-
+      const roll = Math.floor(Math.random() * 100) + 1;
+      let selectedRarity = 'R';
+      if (roll <= 15) {
+        selectedRarity = 'SSR';
+      } else if (roll <= 50) {
+        selectedRarity = 'SR';
+      } else {
+        selectedRarity = 'R';
+      }
+      const songsList = gachaPool[selectedRarity];
+      const randomIdx = Math.floor(Math.random() * songsList.length);
+      const chosenSong = songsList[randomIdx];
+      gachaText.innerHTML = `Kamu dapet lagu:<br><a href="${chosenSong.url}" target="_blank" style="color: #a8a8ff; font-weight: bold; text-decoration: underline;">${chosenSong.title}</a><br><span style="font-size: 0.8rem; color: #aaa;">(Klik judul lagu untuk dengerin!)</span>`;
       if (tokenCount <= 0) {
         gachaBall.style.opacity = '0.5';
         gachaBall.style.cursor = 'not-allowed';
@@ -66,6 +92,7 @@ if (gachaBall && gachaText) {
     }, 500);
   });
 }
+
 const addNoteBtn = document.getElementById('addNoteBtn');
 const bulletinBoard = document.getElementById('bulletinBoard');
 const randomMessages = [
