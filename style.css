@@ -1,5 +1,5 @@
 body {
-  background-color: #f7f0f5;
+  background-color: rgb(247, 240, 245);
   background-image: url('img/wallpaper.jpg');
   background-size: cover;
   background-position: center;
@@ -69,7 +69,7 @@ aside li, .sidebar li, .profile-box li {
   position: relative;
   text-align: center;
   padding: 40px 20px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   margin-bottom: 30px;
   border: 2px dashed #8888e3;
@@ -109,7 +109,7 @@ aside li, .sidebar li, .profile-box li {
 }
 
 .blog-post {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.95);
   padding: 25px;
   border-radius: 20px;
   margin-bottom: 20px;
@@ -132,7 +132,7 @@ aside li, .sidebar li, .profile-box li {
 }
 
 .sidebar-card {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   padding: 20px;
   border-radius: 20px;
   text-align: center;
@@ -591,7 +591,7 @@ body.muted-mode #addNoteBtn:disabled {
   text-align: center;
   margin-top: 30px;
   padding: 20px;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.95);
   border: 2px dashed #a8a8ff;
   border-radius: 20px;
   color: #a8a8ff;

@@ -28,28 +28,28 @@ const gachaText = document.getElementById('gachaText');
 
 const gachaPool = {
   SSR: [
-    { title: '✨ [SSR] Oguri Cap - ∞ 🎶', url: 'https://www.youtube.com/watch?v=kuMQureM-kA' },
-    { title: '✨ [SSR] Perfume - Electro World 🎶', url: 'https://www.youtube.com/watch?v=8zh0ouiYIZc' },
-    { title: '✨ [SSR] Kairiki bear - Bug 🎶', url: 'https://www.youtube.com/watch?v=FkO8ub83wss' },
-    { title: '✨ [SSR] DECO*27 - Telepathy 🎶', url: 'https://www.youtube.com/watch?v=c56TpxfO9q0' },
-    { title: '✨ [SSR] Minami no Minami - SEKAI-chan and KAFU-chan no Otsukai Gassou Kyoku 🎶', url: 'https://www.youtube.com/watch?v=hXabKIYl_Yo'},
-    { title: '✨ [SSR] LamazeP - Ai no Uta 🎶', url: 'https://www.youtube.com/watch?v=E2oRrLUxWKo' }
+    { title: '[SSR] Oguri Cap - ∞', url: 'https://www.youtube.com/watch?v=kuMQureM-kA' },
+    { title: '[SSR] Yuuyu-P - deep sea girl', url: 'https://www.youtube.com/watch?v=T6kVa48UbUw' },
+    { title: '[SSR] Kairiki bear - Bug', url: 'https://www.youtube.com/watch?v=FkO8ub83wss' },
+    { title: '[SSR] iroha - Meltdown', url: 'https://www.youtube.com/watch?v=dSw8CucthGc' },
+    { title: '[SSR] PinocchioP - All I Need are Things I Like', url: 'https://www.youtube.com/watch?v=mYHJPb9PuUM'},
+    { title: '[SSR] supercell - Koi wa Sensou', url: 'https://www.youtube.com/watch?v=jDop41Bxq2A' }
   ],
   SR: [
-    { title: "⭐ [SR] Umamusume - Ms. VICTORIA 🎵", url: 'https://www.youtube.com/watch?v=vsnyQd6Ur-M' },
-    { title: '⭐ [SR] mikitoP - Kunoichi demo Koi ga Shitai 🎵', url: 'https://www.youtube.com/watch?v=eI4F8vuxoQE' },
-    { title: '⭐ [SR] MARETU - White Happy 🎵', url: 'https://www.youtube.com/watch?v=rYymKe82y0c' },
-    { title: '⭐ [SR] Kai - Lose the Princess 🎵', url: 'https://www.youtube.com/watch?v=_fmKpimgQq8' },
-    { title: "⭐ [SR] rusino - Looping the Rooms 🎵", url: 'https://www.youtube.com/watch?v=icBDYkfxpMs' },
-    { title: '⭐ [SR] Tsumiki - Phony 🎵', url: 'https://www.youtube.com/watch?v=9QLT1Aw_45s' }
+    { title: '[SR] Umamusume - Ms. VICTORIA', url: 'https://www.youtube.com/watch?v=vsnyQd6Ur-M' },
+    { title: '[SR] mikitoP - Kunoichi demo Koi ga Shitai', url: 'https://www.youtube.com/watch?v=eI4F8vuxoQE' },
+    { title: '[SR] MARETU - White Happy', url: 'https://www.youtube.com/watch?v=rYymKe82y0c' },
+    { title: '[SR] Kai - Lose the Princess', url: 'https://www.youtube.com/watch?v=_fmKpimgQq8' },
+    { title: '[SR] Junky - Melancholic', url: 'https://www.youtube.com/watch?v=86_kvUqhY-A' },
+    { title: '[SR] nyanyanyan, Wonderland x Showtime - Kirapipi★Kirapika', url: 'https://www.youtube.com/watch?v=gJk_vTwiduU' }
   ],
   R: [
-    { title: '⚪ [R] iyowa - Everything 🎧', url: 'https://www.youtube.com/watch?v=ctAMLdnQUfI' },
-    { title: '⚪ [R] wotaku - snooze 🎧', url: 'https://www.youtube.com/watch?v=fqBpGiVn2k0' },
-    { title: '⚪ [R] HoneyWorks - Kawaikute Gomen 🎧', url: 'https://www.youtube.com/watch?v=K4xLi8IF1FM' },
-    { title: '⚪ [R] Shibayan Records - Tiny Little Adiantum 🎧', url: 'https://www.youtube.com/watch?v=rB7XFQgJHBI' },
-    { title: '⚪ [R] inabakumori - Lag Train 🎧', url: 'https://www.youtube.com/watch?v=UnIhRpIT7nc' },
-    { title: '⚪ [R] balloon - Hana ni Kaze 🎧', url: 'https://www.youtube.com/watch?v=ixLrlhthgHs' }
+    { title: '[R] iyowa - Everything', url: 'https://www.youtube.com/watch?v=ctAMLdnQUfI' },
+    { title: '[R] wotaku - snooze', url: 'https://www.youtube.com/watch?v=fqBpGiVn2k0' },
+    { title: '[R] OSTER project - Miracle Paint', url: 'https://www.youtube.com/watch?v=gqPWXe0dCC4' },
+    { title: '[R] Shibayan Records - Tiny Little Adiantum 🎧', url: 'https://www.youtube.com/watch?v=rB7XFQgJHBI' },
+    { title: '[R] inabakumori - Lag Train', url: 'https://www.youtube.com/watch?v=UnIhRpIT7nc' },
+    { title: '[R] balloon - Hana ni Kaze', url: 'https://www.youtube.com/watch?v=ixLrlhthgHs' }
   ]
 };
 
@@ -57,16 +57,16 @@ if (gachaBall && gachaText) {
   let tokenCount = 3;
   const tokenDiv = document.createElement('div');
   tokenDiv.id = 'gachaTokens';
-  tokenDiv.innerText = `Token tersisa: ${tokenCount} 🪙`;
+  tokenDiv.innerText = `Token yang tersisa: ${tokenCount} 🪙`;
   tokenDiv.style.cssText = 'font-size: 0.85rem; color: #a8a8ff; font-weight: bold; margin-top: 5px;';
   gachaText.parentNode.insertBefore(tokenDiv, gachaText.nextSibling);
   gachaBall.addEventListener('click', () => {
     if (tokenCount <= 0) {
-      gachaText.innerHTML = 'Token kamu habis! Refresh dulu ya. (･_･)';
+      gachaText.innerHTML = 'Token habis! Refresh halaman untuk dapat token baru ya! (･_･;)';
       return;
     }
     tokenCount--;
-    tokenDiv.innerText = `Token tersisa: ${tokenCount} 🪙`;
+    tokenDiv.innerText = `Token yang tersisa: ${tokenCount} 🪙`;
     gachaBall.classList.add('ball-bounce');
     gachaText.innerText = 'Memutar Gachapon...';
     setTimeout(() => {
@@ -87,7 +87,7 @@ if (gachaBall && gachaText) {
       if (tokenCount <= 0) {
         gachaBall.style.opacity = '0.5';
         gachaBall.style.cursor = 'not-allowed';
-        tokenDiv.innerText = 'Token habis! Refresh halaman untuk dapat token baru ya!';
+        tokenDiv.innerText = 'Token habis! Refresh halaman untuk dapat token baru ya! (･_･;)';
       }
     }, 500);
   });
@@ -109,7 +109,7 @@ if (addNoteBtn && bulletinBoard) {
   addNoteBtn.addEventListener('click', () => {
     const currentNotes = bulletinBoard.querySelectorAll('.sticky-note');
     if (currentNotes.length >= 12) {
-      addNoteBtn.innerText = 'Mading udah penuh! (･_･)';
+      addNoteBtn.innerText = 'Mading udah penuh! (･_･;)';
       addNoteBtn.disabled = true;
       return;
     }
