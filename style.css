@@ -652,19 +652,30 @@ body.muted-mode #addNoteBtn:disabled {
 .flower-garden {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;
   position: relative;
   z-index: 2;
 }
 
 .game-flower {
-  width: 75px;
-  height: 75px;
+  width: 100%;
+  max-width: 75px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   cursor: pointer;
   transition: transform 0.2s ease, filter 0.2s, opacity 0.2s;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 380px) {
+  .game-screen {
+    padding: 110px 8px 20px 8px;
+  }
+  .flower-garden {
+    gap: 6px;
+  }
 }
 
 @media (hover: hover) {
