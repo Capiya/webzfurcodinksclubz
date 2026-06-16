@@ -29,27 +29,21 @@ const gachaText = document.getElementById('gachaText');
 const gachaPool = {
   SSR: [
     { title: '[SSR] Oguri Cap - ∞', url: 'https://www.youtube.com/watch?v=kuMQureM-kA' },
-    { title: '[SSR] Yuuyu-P - deep sea girl', url: 'https://www.youtube.com/watch?v=T6kVa48UbUw' },
     { title: '[SSR] Kairiki bear - Bug', url: 'https://www.youtube.com/watch?v=FkO8ub83wss' },
-    { title: '[SSR] iroha - Meltdown', url: 'https://www.youtube.com/watch?v=dSw8CucthGc' },
-    { title: '[SSR] PinocchioP - All I Need are Things I Like', url: 'https://www.youtube.com/watch?v=mYHJPb9PuUM'},
-    { title: '[SSR] supercell - Koi wa Sensou', url: 'https://www.youtube.com/watch?v=jDop41Bxq2A' }
+    { title: '[SSR] PinocchioP - All I Need are Things I Like', url: 'https://www.youtube.com/watch?v=mYHJPb9PuUM'}
   ],
   SR: [
-    { title: '[SR] Umamusume - Ms. VICTORIA', url: 'https://www.youtube.com/watch?v=vsnyQd6Ur-M' },
-    { title: '[SR] mikitoP - Kunoichi demo Koi ga Shitai', url: 'https://www.youtube.com/watch?v=eI4F8vuxoQE' },
-    { title: '[SR] MARETU - White Happy', url: 'https://www.youtube.com/watch?v=rYymKe82y0c' },
-    { title: '[SR] Kai - Lose the Princess', url: 'https://www.youtube.com/watch?v=_fmKpimgQq8' },
+    { title: '[SR] Ado - Readymade', url: 'https://www.youtube.com/watch?v=jg09lNupc1s' },
     { title: '[SR] Junky - Melancholic', url: 'https://www.youtube.com/watch?v=86_kvUqhY-A' },
+    { title: '[SR] sasakure. UK - Tondemo Wonderz', url: 'https://www.youtube.com/watch?v=dBQg24mx45Y' },
     { title: '[SR] nyanyanyan, Wonderland x Showtime - Kirapipi★Kirapika', url: 'https://www.youtube.com/watch?v=gJk_vTwiduU' }
   ],
   R: [
     { title: '[R] iyowa - Everything', url: 'https://www.youtube.com/watch?v=ctAMLdnQUfI' },
     { title: '[R] wotaku - snooze', url: 'https://www.youtube.com/watch?v=fqBpGiVn2k0' },
-    { title: '[R] OSTER project - Miracle Paint', url: 'https://www.youtube.com/watch?v=gqPWXe0dCC4' },
-    { title: '[R] Shibayan Records - Tiny Little Adiantum 🎧', url: 'https://www.youtube.com/watch?v=rB7XFQgJHBI' },
-    { title: '[R] inabakumori - Lag Train', url: 'https://www.youtube.com/watch?v=UnIhRpIT7nc' },
-    { title: '[R] balloon - Hana ni Kaze', url: 'https://www.youtube.com/watch?v=ixLrlhthgHs' }
+    { title: '[R] NayutalieN, Chinozo - Newton Dance', url: 'https://www.youtube.com/watch?v=ZnroCM3V7eA' },
+    { title: '[R] Shibayan Records - Tiny Little Adiantum', url: 'https://www.youtube.com/watch?v=rB7XFQgJHBI' },
+    { title: '[R] Giga - BRING IT ON', url: 'https://www.youtube.com/watch?v=oEkGC2HV7rc' }
   ]
 };
 
@@ -175,3 +169,106 @@ quizBtns.forEach(btn => {
     }
   });
 });
+
+const gameFlowers = document.querySelectorAll('.game-flower');
+const gameStatus = document.getElementById('gameStatus');
+const beeSecretText = document.getElementById('beeSecretText');
+const beeLoseText = document.getElementById('beeLoseText');
+const resetBeeGameBtn = document.getElementById('resetBeeGame');
+const mainThemeToggle = document.getElementById('themeToggle');
+
+let beePosition = Math.floor(Math.random() * 4);
+let beeLives = 3;
+let beeGameOver = false;
+
+const dayImages = ['img/dandelion.png', 'img/forget.png', 'img/dandelion.png', 'img/forget.png'];
+const nightImages = ['img/dandelion2.png', 'img/forget2.png', 'img/dandelion2.png', 'img/forget2.png'];
+
+function updateThemeFlowers() {
+  const isNight = document.body.classList.contains('muted-mode');
+
+  gameFlowers.forEach((flower, i) => {
+    if (beeGameOver && i === beePosition) {
+      flower.src = isNight ? 'img/lebah2.png' : 'img/lebah.png';
+    } else if (flower.classList.contains('opened') && i === beePosition) {
+      flower.src = isNight ? 'img/lebah2.png' : 'img/lebah.png';
+    } else {
+      flower.src = isNight ? nightImages[i] : dayImages[i];
+    }
+  });
+}
+
+updateThemeFlowers();
+
+if (mainThemeToggle) {
+  mainThemeToggle.addEventListener('click', () => {
+    setTimeout(updateThemeFlowers, 50);
+  });
+}
+
+gameFlowers.forEach((flower, index) => {
+  flower.addEventListener('click', () => {
+    if (beeGameOver || flower.classList.contains('opened')) return;
+
+    flower.classList.add('opened');
+
+    if (index === beePosition) {
+      beeGameOver = true;
+      updateThemeFlowers();
+
+      flower.style.opacity = '1';
+      flower.style.filter = 'none';
+
+      gameStatus.innerText = 'Si Lebah Tertangkap!';
+      gameStatus.style.color = '#388e3c';
+
+      if (beeSecretText) beeSecretText.style.display = 'block';
+      if (beeLoseText) beeLoseText.style.display = 'none';
+      if (resetBeeGameBtn) resetBeeGameBtn.style.display = 'block';
+    } else {
+      flower.style.opacity = '0.3';
+      flower.style.filter = 'grayscale(100%)';
+      beeLives--;
+
+      if (beeLives > 0) {
+        gameStatus.innerText = `${beeLives}x kesempatan!`;
+      } else {
+        beeGameOver = true;
+        updateThemeFlowers();
+
+        gameStatus.innerText = 'Yah, Lebahnya Udah Keburu Kabur!';
+        gameStatus.style.color = '#c62828';
+
+        gameFlowers[beePosition].style.opacity = '1';
+        gameFlowers[beePosition].style.filter = 'none';
+
+        if (beeLoseText) beeLoseText.style.display = 'block';
+        if (beeSecretText) beeSecretText.style.display = 'none';
+        if (resetBeeGameBtn) resetBeeGameBtn.style.display = 'block';
+      }
+    }
+  });
+});
+
+if (resetBeeGameBtn) {
+  resetBeeGameBtn.addEventListener('click', () => {
+    beePosition = Math.floor(Math.random() * 4);
+    beeLives = 3;
+    beeGameOver = false;
+
+    gameStatus.innerText = '3x kesempatan!';
+    gameStatus.style.color = '';
+
+    if (beeSecretText) beeSecretText.style.display = 'none';
+    if (beeLoseText) beeLoseText.style.display = 'none';
+    resetBeeGameBtn.style.display = 'none';
+
+    gameFlowers.forEach((flower) => {
+      flower.classList.remove('opened');
+      flower.style.opacity = '1';
+      flower.style.filter = 'none';
+    });
+
+    updateThemeFlowers();
+  });
+}

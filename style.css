@@ -363,10 +363,17 @@ button {
   transition: all 0.2s ease;
 }
 
-.social-link:hover {
-  background: #a8a8ff;
-  color: white;
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .social-link:hover {
+    background: #a8a8ff;
+    color: white;
+    transform: translateY(-2px);
+  }
+}
+
+.social-link:active {
+  transform: scale(0.97);
+  opacity: 0.9;
 }
 
 .club-btn {
@@ -467,11 +474,18 @@ body.muted-mode #addNoteBtn:disabled {
 }
 
 @media (hover: hover) {
-  #addNoteBtn:hover {
-    transform: scale(1.05);
-    background: #a8a8ff;
+  .social-link:hover,
+  .club-btn:hover {
+    background-color: #a8a8ff;
     color: white;
+    transform: scale(1.05);
   }
+}
+
+.social-link:active,
+.club-btn:active {
+  transform: scale(0.95);
+  opacity: 0.8;
 }
 
 .bulletin-board {
@@ -607,6 +621,88 @@ body.muted-mode #addNoteBtn:disabled {
   height: auto;
 }
 
+.game-screen {
+  background-image: url('img/latar.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 3px solid #a8a8ff;
+  border-radius: 15px;
+  padding: 110px 15px 20px 15px;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.15);
+  transition: background-image 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-screen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 235, 130, 0.18);
+  pointer-events: none;
+  z-index: 5;
+  transition: background-color 0.3s ease;
+}
+
+.flower-garden {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.game-flower {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s, opacity 0.2s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+  .game-flower:hover:not(.opened) {
+    transform: scale(1.15) translateY(-5px);
+  }
+}
+
+.game-flower:active {
+  transform: scale(0.9);
+}
+
+#gameStatus {
+  font-weight: bold;
+}
+
+.secret-box {
+  display: none;
+  background: #feffe3;
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px dashed #a8a8ff;
+  margin-top: 20px;
+  color: #a8a8ff;
+  position: relative;
+  z-index: 10;
+  animation: beePopIn 0.5s ease-out forwards;
+}
+
+.text-malam {
+  display: none;
+}
+
+@keyframes beePopIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 body.muted-mode {
   background-image: linear-gradient(rgba(40, 44, 70, 0.85), rgba(40, 44, 70, 0.85)), url('img/wallpaper.jpg');
   color: #e0e0ff;
@@ -675,9 +771,11 @@ body.muted-mode .social-link {
   color: #bfa8ff;
 }
 
-body.muted-mode .social-link:hover {
-  background: #52528a;
-  color: white;
+@media (hover: hover) {
+  body.muted-mode .social-link:hover {
+    background: #52528a;
+    color: white;
+  }
 }
 
 body.muted-mode .header-ribbon {
@@ -826,4 +924,31 @@ body.muted-mode .site-footer {
   background: rgba(52, 52, 82, 0.95);
   border-color: #52528a;
   color: #e0e0ff;
+}
+
+body.muted-mode .game-screen {
+  background-image: url('img/latar2.png');
+  border-color: #52528a;
+}
+
+body.muted-mode .game-screen::after {
+  background-color: rgba(20, 30, 85, 0.4);
+}
+
+body.muted-mode .secret-box {
+  background: #404065;
+  border-color: #52528a;
+  color: #bfa8ff;
+}
+
+body.muted-mode #gameStatus {
+  color: #bfa8ff;
+}
+
+body.muted-mode .text-siang {
+  display: none;
+}
+
+body.muted-mode .text-malam {
+  display: inline;
 }
