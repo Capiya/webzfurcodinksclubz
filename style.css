@@ -717,6 +717,12 @@ body.muted-mode #addNoteBtn:disabled {
   100% { transform: scale(1); opacity: 1; }
 }
 
+.game-flower[src*="lebah"] {
+  transform: none !important;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
 body.muted-mode {
   background-image: linear-gradient(rgba(40, 44, 70, 0.85), rgba(40, 44, 70, 0.85)), url('img/wallpaper.jpg');
   color: #e0e0ff;
