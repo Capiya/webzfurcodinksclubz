@@ -719,8 +719,15 @@ body.muted-mode #addNoteBtn:disabled {
 
 .game-flower[src*="lebah"] {
   transform: none !important;
-  padding: 15px;
+  padding: 5px;
   box-sizing: border-box;
+}
+
+.secret-gif {
+  display: block;
+  max-width: 200px;
+  margin: 10px auto 10px auto;
+  border-radius: 10px;
 }
 
 body.muted-mode {
